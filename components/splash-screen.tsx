@@ -26,9 +26,7 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
   return (
     <div className="fixed inset-0 z-[9999] bg-gradient-to-br from-background via-primary/10 to-background flex items-center justify-center overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 animate-shimmer"></div>
-      </div>
+      
 
       {/* Content */}
       <div className="text-center space-y-6 px-4">
