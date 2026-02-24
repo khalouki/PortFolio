@@ -88,7 +88,7 @@ export function HeroSection() {
                 Get In Touch <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="/ESSAID_ABDELKHALEK_CV.pdf"
+                href="./ESSAID_ABDELKHALEK_CV.pdf"
                 className="px-8 py-3 border-2 border-primary/50 text-primary rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-primary/10 transition-all duration-300 hover:border-primary"
               >
                 Download CV <Download size={18} />
@@ -119,7 +119,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent rounded-2xl p-1 animate-glow">
               <div className="absolute inset-0 bg-background rounded-2xl flex items-center justify-center">
                 <img
-                  src="/pro.avif"
+                  src="./pro.avif"
                   alt="Abdelkhalk Essaid"
                   className="w-full h-full object-cover rounded-2xl shadow-2xl"
                 />
