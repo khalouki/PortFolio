@@ -117,7 +117,7 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-[var(--old-blue)] rounded-2xl p-1 animate-glow">
               <div className="absolute inset-0 bg-background rounded-2xl flex items-center justify-center">
                 <img
-                  src="./pro.avif"
+                  src="./portfolio.jpeg"
                   alt="Abdelkhalk Essaid"
                   className="w-full h-full object-cover rounded-2xl shadow-2xl"
                 />
