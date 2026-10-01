@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BriefcaseBusiness,
   Building2,
@@ -87,45 +88,62 @@ export function ExperienceSection() {
                     }`}
                   >
                     <div
-                      className={`timeline-card rounded-xl p-6 transition-all duration-300 hover:-translate-y-1 ${
+                      className={`timeline-card rounded-xl p-6 md:row-start-1 ${
                         isLeft ? "md:text-right" : "md:text-left"
                       }`}
                     >
-                      <div
-                        className={`timeline-badge mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold text-white ${
-                          isLeft ? "md:flex-row-reverse" : ""
-                        }`}
-                      >
-                        <GraduationCap className="h-4 w-4" aria-hidden="true" />
-                        {style.status}
+                      <div>
+                        <div className={`mb-4 flex items-center gap-4 ${isLeft ? "" : "md:flex-row-reverse"}`}>
+                          {item.logo && (
+                            <div className="flex h-20 w-20 flex-none items-center justify-center rounded-lg bg-white p-2">
+                              <Image
+                                src={`/PortFolio${item.logo}`}
+                                alt={`${item.organization} logo`}
+                                width={64}
+                                height={64}
+                                className="h-full w-full object-contain"
+                              />
+                            </div>
+                          )}
+                          <div className="min-w-0 flex-1">
+                            <div
+                              className={`timeline-badge mb-4 inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-semibold text-white ${
+                                isLeft ? "md:flex-row-reverse" : ""
+                              }`}
+                            >
+                              <GraduationCap className="h-4 w-4" aria-hidden="true" />
+                              {style.status}
+                            </div>
+                            <p className="timeline-year text-3xl font-bold">{item.period}</p>
+                          </div>
+                        </div>
+                        <h3
+                          className={`mt-3 flex items-center gap-3 text-xl font-bold text-foreground ${
+                            isLeft ? "md:justify-end" : ""
+                          }`}
+                        >
+                          <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[var(--old-blue)] text-xl">
+                            {style.emoji}
+                          </span>
+                          <span>{item.title}</span>
+                        </h3>
+                        <p
+                          className={`timeline-org mt-3 flex items-center gap-2 text-sm ${
+                            isLeft ? "md:justify-end" : ""
+                          }`}
+                        >
+                          <Building2 className="h-4 w-4" aria-hidden="true" />
+                          {item.organization}
+                        </p>
+                        <p
+                          className={`mt-3 flex items-center gap-2 text-sm text-muted-foreground ${
+                            isLeft ? "md:justify-end" : ""
+                          }`}
+                        >
+                          <FieldIcon className="h-4 w-4" aria-hidden="true" />
+                          {item.description}
+                        </p>
                       </div>
-                      <p className="timeline-year text-3xl font-bold">{item.period}</p>
-                      <h3
-                        className={`mt-3 flex items-center gap-3 text-xl font-bold text-foreground ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
-                        <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-[var(--old-blue)] text-xl">
-                          {style.emoji}
-                        </span>
-                        <span>{item.title}</span>
-                      </h3>
-                      <p
-                        className={`timeline-org mt-3 flex items-center gap-2 text-sm ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
-                        <Building2 className="h-4 w-4" aria-hidden="true" />
-                        {item.organization}
-                      </p>
-                      <p
-                        className={`mt-3 flex items-center gap-2 text-sm text-muted-foreground ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
-                        <FieldIcon className="h-4 w-4" aria-hidden="true" />
-                        {item.description}
-                      </p>
                     </div>
 
                     <div className="hidden md:block" />

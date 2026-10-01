@@ -219,6 +219,7 @@ export const timeline = [
     type: "Education",
     title: "Master's Degree",
     organization: "Faculte Polydisciplinaire de Beni Mellal (FPBM)",
+    logo: "/education/fpbm-logo.png",
     period: " 2026",
     description:
       "Data Science and Information Systems Security.",
@@ -235,6 +236,7 @@ export const timeline = [
     type: "Education",
     title: "Licence",
     organization: "Faculte Polydisciplinaire de Beni Mellal (FPBM)",
+    logo: "/education/fpbm-logo.png",
     period: "2024",
     description: "Data Science and Information Systems Security.",
   },
@@ -250,6 +252,7 @@ export const timeline = [
     type: "Education",
     title: "DUT",
     organization: "Ecole Superieure de Technologie (EST)",
+    logo: "/education/est-logo.webp",
     period: "2023",
     description: "Software Engineering.",
   },
