@@ -8,7 +8,7 @@ export const profile = {
   email: "abdelkhalkessaid1@gmail.com",
   github: "https://github.com/khalouki",
   linkedin: "https://www.linkedin.com/in/abdelkhalk-essaid/",
-  cv: "./ESSAID_RESUME.pdf",
+  cv: "./ABDELKHALK_ESSAID_RESUME.pdf",
   image: "/pro.avif",
 };
 
