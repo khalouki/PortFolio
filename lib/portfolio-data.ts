@@ -12,8 +12,19 @@ export const profile = {
   image: "/pro.avif",
 };
 
+export type ProjectType = "internship" | "academic" | "personal";
+
+export const projectTypeLabels: Record<ProjectType, string> = {
+  internship: "Internship Project",
+  academic: "Academic Project",
+  personal: "Personal Project",
+};
+
 export type Project = {
   title: string;
+  // Leave unset until the origin is documented or manually confirmed.
+  projectType?: ProjectType;
+  subtitle?: string;
   summary: string;
   contribution: string;
   highlights: string[];
@@ -34,7 +45,36 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "PulseData",
+    projectType: "personal",
+    subtitle: "Real-Time Data Engineering & AI Analytics Platform",
+    summary:
+      "An end-to-end real-time e-commerce data platform combining event streaming, distributed processing, interactive analytics, anomaly detection, and revenue forecasting.",
+    contribution:
+      "Designed and developed a Dockerized data platform integrating Kafka, Spark Structured Streaming, PostgreSQL, FastAPI, and Next.js, with machine learning models for anomaly detection and revenue forecasting.",
+    highlights: [
+      "Built a real-time event processing pipeline using Apache Kafka and Spark Structured Streaming.",
+      "Developed a FastAPI analytics backend and an interactive Next.js dashboard.",
+      "Implemented anomaly detection with Isolation Forest and hourly revenue forecasting using scikit-learn.",
+      "Containerized the platform with Docker Compose and added automated tests and GitHub Actions CI.",
+    ],
+    technologies: [
+      "Python",
+      "Apache Kafka",
+      "Apache Spark",
+      "PostgreSQL",
+      "FastAPI",
+      "Next.js",
+      "TypeScript",
+      "scikit-learn",
+      "Docker",
+    ],
+    github: "https://github.com/khalouki/PulseData",
+    image: "/projects/pulsedata-dashboard.png",
+  },
+  {
     title: "Virtual FabLab — Intelligent Manufacturing Supervision Platform",
+    projectType: "internship",
     summary:
       "Full-stack platform for managing and supervising a virtual fabrication laboratory with machine reservations, administration dashboards, interactive simulation, simulated IoT telemetry, and anomaly analysis.",
     contribution:
@@ -104,6 +144,7 @@ export const projects: Project[] = [
   },
   {
     title: "Equipment Visit Management — OCP Internship Project",
+    projectType: "internship",
     summary:
       "Desktop and mobile solution for organizing equipment visit workflows at Laverie Daoui, supporting field agents and administrators.",
     contribution:
@@ -149,6 +190,7 @@ export const projects: Project[] = [
   },
 {
   title: "DataPilot AI",
+  projectType: "personal",
   summary:
     "AI-powered data analysis platform that transforms uploaded datasets into automated insights, interactive visualizations, and business-ready analytics.",
   contribution:

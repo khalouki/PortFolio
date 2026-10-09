@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { ExternalLink, Github, ImageIcon } from "lucide-react";
-import { projects } from "@/lib/portfolio-data";
+import { projects, projectTypeLabels } from "@/lib/portfolio-data";
 import { Reveal } from "./reveal";
 
-const projectEmojis = ["🏭", "🏢", "🚗", "📅", "🤖"];
+const projectEmojis = ["📊", "🏭", "🏢", "🚗", "📅", "🤖"];
 
 export function ProjectsSection() {
   return (
@@ -22,7 +22,10 @@ export function ProjectsSection() {
           {projects.map((project, index) => {
             return (
               <Reveal key={project.title} direction="up" delay={index * 90}>
-                <article className="project-card flex h-full flex-col rounded-xl p-6">
+                <article className={`project-card flex h-full flex-col rounded-xl p-6${project.title === "PulseData" ? " project-card--pulsedata" : ""}`}>
+                  <span className={`project-type${project.projectType ? ` project-type--${project.projectType}` : ""}`}>
+                    {project.projectType ? projectTypeLabels[project.projectType] : "Origin unclassified"}
+                  </span>
                   <div
                     id={`project-preview-${index}`}
                     className="project-preview"
@@ -52,12 +55,17 @@ export function ProjectsSection() {
                       </span>
                       <span>{project.title}</span>
                     </h3>
+                    {project.subtitle && (
+                      <p className="mt-3 text-sm font-semibold text-foreground">
+                        {project.subtitle}
+                      </p>
+                    )}
                     <p className="mt-3 flex-1 text-sm leading-6 text-muted-foreground">
                       {project.summary}
                     </p>
 
                     <div className="mt-5 flex flex-wrap gap-2">
-                      {project.technologies.slice(0, 8).map((tech) => (
+                      {project.technologies.slice(0, project.title === "PulseData" ? undefined : 8).map((tech) => (
                         <span key={tech} className="project-badge rounded-full px-3 py-1 text-xs font-medium">
                           {tech}
                         </span>

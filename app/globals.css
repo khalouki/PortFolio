@@ -288,6 +288,44 @@
     color: var(--project-color);
   }
 
+  .project-type {
+    --project-type-color: color-mix(in srgb, var(--foreground) 20%, var(--muted-foreground));
+    position: absolute;
+    top: 0.75rem;
+    right: 3.5rem;
+    z-index: 3;
+    pointer-events: none;
+    max-width: calc(100% - 5rem);
+    padding: 0.1875rem 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--project-type-color) 25%, var(--card));
+    border-radius: var(--radius-sm);
+    background: color-mix(in srgb, var(--project-type-color) 8%, var(--card));
+    color: var(--project-type-color);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    line-height: 1rem;
+  }
+
+  .project-type--internship {
+    --project-type-color: var(--name-blue);
+  }
+
+  .project-type--academic {
+    --project-type-color: #6d28d9;
+  }
+
+  .project-type--personal {
+    --project-type-color: #047857;
+  }
+
+  .dark .project-type--academic {
+    --project-type-color: #c4b5fd;
+  }
+
+  .dark .project-type--personal {
+    --project-type-color: #6ee7b7;
+  }
+
   .project-preview {
     position: absolute;
     inset: 0;
@@ -308,6 +346,7 @@
   }
 
   .project-content {
+    padding-top: 1.25rem;
     transition: opacity 400ms ease;
   }
 
@@ -340,6 +379,34 @@
     .project-card:has(.project-preview-toggle:hover, .project-preview:hover):not(:has(.project-content :focus-visible)) .project-content {
       opacity: 0;
       pointer-events: none;
+    }
+  }
+
+  @media (hover: none), (pointer: coarse) {
+    .project-card--pulsedata .project-preview {
+      z-index: 0;
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .project-card--pulsedata .project-preview::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        color-mix(in srgb, var(--card) 80%, transparent),
+        color-mix(in srgb, var(--card) 94%, transparent)
+      );
+    }
+
+    .project-card--pulsedata .project-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .project-card--pulsedata:has(.project-preview-toggle:focus-visible) .project-preview::after {
+      background: none;
     }
   }
 
